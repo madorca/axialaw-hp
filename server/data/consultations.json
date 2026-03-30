@@ -1,0 +1,28 @@
+[
+  {
+    "id": "580317e8-8bbf-4915-a2a2-38f89b13a2be",
+    "name": "테스트 고객",
+    "phone": "010-9999-8888",
+    "email": "test@test.com",
+    "caseField": "형사",
+    "caseOverview": "테스트 상담입니다.",
+    "privacyConsent": true,
+    "status": "new",
+    "memo": "",
+    "createdAt": "2026-03-23T16:47:46.870Z",
+    "updatedAt": "2026-03-23T16:47:46.870Z"
+  },
+  {
+    "id": "test-123",
+    "name": "홍길동",
+    "phone": "010-1234-5678",
+    "email": "test@example.com",
+    "caseField": "조세",
+    "caseOverview": "테스트 상담 요청입니다. 세무 조사 관련 문의 드립니다.",
+    "privacyConsent": true,
+    "status": "new",
+    "memo": "기본 테스트 레코드입니다.",
+    "createdAt": "2026-03-24T00:00:00.000Z",
+    "updatedAt": "2026-03-24T00:00:00.000Z"
+  }
+]

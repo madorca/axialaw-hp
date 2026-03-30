@@ -1,0 +1,114 @@
+{
+  "siteInfo": {
+    "brandEn": "AXIA",
+    "brandKo": "법무법인엑시아",
+    "tagline": "조세 · 형사 · 민사 분야에서 전략적 대응을 제공하는 분쟁 중심 로펌.",
+    "seoTitle": "법무법인엑시아 | AXIA Law Firm",
+    "seoDesc": "조세심판, 조세소송, 형사재판 및 기업법무 전문 법무법인 엑시아입니다."
+  },
+  "hero": {
+    "eyebrow": "TAX · CRIMINAL · CIVIL",
+    "titleLine1": "분쟁 해결의",
+    "titleLine2": "기준이 되는 로펌",
+    "subtitleStrong": "결과를 바꿀 수 있는 오직 한 가지\n전문가와의 만남입니다.",
+    "subtitleNormal": "조세 · 형사 · 민사 분야 법무법인 엑시아는\n최고 수준의 소송 대응력을 보유하고 있습니다.",
+    "ctaPrimaryLabel": "무료 상담 신청하기",
+    "ctaSecondaryLabel": "업무 분야 더보기",
+    "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200",
+    "imageOverlay": {
+      "eyebrow": "AXIA STRATEGY",
+      "line1": "92.4%",
+      "line2": "Win Rate"
+    }
+  },
+  "about": {
+    "eyebrow": "ABOUT AXIA",
+    "title": "탁월한 전문성과\n전략적 통찰력",
+    "description": "법무법인 엑시아는 각 분야에서 수년간의 경험과 승소 사례를 보유한 전문가들이 모여 설립되었습니다. 단순한 법률 자문을 넘어, 고객의 비즈니스와 상황을 깊이 있게 이해하고 최적의 대응 전략을 수립합니다.",
+    "stats": [
+      { "label": "승소 및 조정 성공률", "value": "92%" },
+      { "label": "누적 상담 건수", "value": "1,500+" },
+      { "label": "전문가 그룹", "value": "15+" }
+    ],
+    "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+  },
+  "strengthSection": {
+    "eyebrow": "OUR STRENGTH",
+    "title": "엑시아만의 세 가지 기준"
+  },
+  "strengths": [
+    { "no": "01", "title": "전략적 소송 대응", "body": "철저한 사실관계 분석과 법리 검토를 통해 고객에게 가장 유리한 최적의 대응 시나리오를 제시합니다." },
+    { "no": "02", "title": "전문가 전담제", "body": "사건의 시작부터 끝까지 담당 변호사가 직접 소통하며 전문성을 갖춘 밀착 변론을 수행합니다." },
+    { "no": "03", "title": "결과 중심적 사고", "body": "단순한 법률 행위를 넘어, 고객이 처한 실질적인 문제 해결과 성공적인 결과 도출을 최우선으로 합니다." }
+  ],
+  "practiceSection": {
+     "eyebrow": "PRACTICE AREAS",
+     "title": "최상의 전문성을 발휘하는 분야"
+  },
+  "practices": [
+    { "title": "조세 포탈 및 소송", "body": "국세청 출신 전문가의 심도 있는 이해를 바탕으로 복잡한 조세 사건을 해결합니다." },
+    { "title": "기업 형사 및 강력 범죄", "body": "수사 단계부터 재판에 이르기까지 치밀한 논리로 고객을 방어합니다." },
+    { "title": "민사 및 분쟁 해결", "body": "다양한 유형의 민사 분쟁에서 전략적인 해결책을 제시합니다." }
+  ],
+  "casesSection": {
+     "eyebrow": "KEY CASES",
+     "title": "승소로 증명하는 실력"
+  },
+  "cases": [
+    { "category": "조세", "title": "1,000억 원대 증여세 부과 처분 취소 소송 승소", "result": "전부 취소 판결" },
+    { "category": "형사", "title": "기업 배임 · 횡령 혐의 무죄 판결 도출", "result": "무죄" },
+    { "category": "민사", "title": "대규모 부동산 개발 사업권 분쟁 승소", "result": "승소" }
+  ],
+  "consultSection": {
+    "eyebrow": "CONTACT US",
+    "title": "당신의 권리를 지키는 최선의 선택",
+    "description": "법적 분쟁은 초기 대응이 결과를 좌우합니다. 엑시아의 전문가들이 당신의 든든한 파트너가 되어 최적의 해결책을 찾아드리겠습니다.",
+    "steps": [
+      "상담 신청 내용 검토",
+      "담당 변호사 매칭 및 연락",
+      "심층 면담 및 전략 수립"
+    ],
+    "form": {
+      "nameLabel": "이름",
+      "namePlaceholder": "성함을 입력해 주세요",
+      "phoneLabel": "연락처",
+      "phonePlaceholder": "010-0000-0000",
+      "emailLabel": "이메일",
+      "emailPlaceholder": "example@domain.com",
+      "caseFieldLabel": "사건 분야",
+      "caseFieldOptions": ["조세", "형사", "민사", "기업법무", "기타"],
+      "caseOverviewLabel": "사건 개요",
+      "caseOverviewPlaceholder": "상담하시고자 하는 내용을 간략히 적어주세요.",
+      "privacyConsent": "개인정보 수집 및 이용에 동의합니다.",
+      "submitLabel": "상담 요청 보내기"
+    }
+  },
+  "lawyers": {
+    "eyebrow": "OUR PARTNERS",
+    "title": "각 분야의 권위 있는 전문가",
+    "members": [
+      {
+        "id": "L1",
+        "name": "이경호",
+        "role": "대표변호사",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800",
+        "specialty": "조세 · 기업법무",
+        "description": "국세청 출신 전문가로서 복잡한 조세 포탈, 심판 청구 및 조세 소송 분야에서 압도적인 전문성을 보유하고 있습니다."
+      },
+      {
+        "id": "L2",
+        "name": "박준서",
+        "role": "파트너 변호사",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
+        "specialty": "강력범죄 · 형사재판",
+        "description": "검찰 출신 변호사로서 수사 단계부터 재판에 이르기까지 치말한 논리로 고객을 방어하며 다수의 무죄 판결을 이끌어냈습니다."
+      }
+    ]
+  },
+  "footer": {
+    "address": "서울특별시 강남구 논현로 340 2층 203호",
+    "phone": "02-6205-4620",
+    "email": "contact@axialaw.co.kr",
+    "copyright": "© 2026 AXIA Law Firm. All Rights Reserved."
+  }
+}
