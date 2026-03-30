@@ -7,7 +7,7 @@
     "dev": "vite",
     "server": "node server/index.js",
     "dev:all": "node server/index.js & vite",
-    "build": "npx vite build",
+    "build": "npm install && npx vite build",
     "preview": "vite preview",
     "start": "npm run build && node server/index.js",
     "install": "npm install",
