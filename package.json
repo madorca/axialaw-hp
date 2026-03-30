@@ -7,10 +7,9 @@
     "dev": "vite",
     "server": "node server/index.js",
     "dev:all": "node server/index.js & vite",
-    "build": "npm install && npx vite build",
+    "build": "npm ci && npx vite build",
     "preview": "vite preview",
     "start": "npm run build && node server/index.js",
-    "install": "npm install",
     "lint": "eslint ."
   },
   "dependencies": {
