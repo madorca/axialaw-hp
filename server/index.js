@@ -24,7 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 /* eslint-disable no-undef */
 const JWT_SECRET = process.env?.JWT_SECRET || "axia-admin-secret-key-2024";
 const ADMIN_ID = process.env?.ADMIN_ID || "admin";
@@ -390,7 +390,7 @@ app.post("/api/upload", authenticate, upload.single("image"), (req, res) => {
 const distPath = path.join(__dirname, "..", "dist");
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
-  app.get("/:any*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
