@@ -1,0 +1,13 @@
+services:
+  - name: axialaw-hp
+    type: web
+    region: oregon
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
+    repo: https://github.com/madorca/axialaw-hp.git
+    branch: main

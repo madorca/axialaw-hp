@@ -387,7 +387,6 @@ app.post("/api/upload", authenticate, upload.single("image"), (req, res) => {
 });
 
 // ─── 프로덕션: 정적 파일 서빙 ─────────────
-/*
 const distPath = path.join(__dirname, "..", "dist");
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
@@ -395,7 +394,6 @@ if (fs.existsSync(distPath)) {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
-*/
 
 // Vercel 환경에서 /tmp/uploads 정적 파일 서빙
 if (isVercel) {
