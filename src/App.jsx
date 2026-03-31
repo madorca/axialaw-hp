@@ -10,44 +10,31 @@ import Cases from "./components/Cases";
 import Consult from "./components/Consult";
 import Footer from "./components/Footer";
 import AdminLayout from "./admin/AdminLayout";
+import LoginPage from "./admin/LoginPage";
 import ConsultationList from "./admin/ConsultationList";
 import ConsultationDetail from "./admin/ConsultationDetail";
 import ContentEditor from "./admin/ContentEditor";
 import { ContentProvider } from "./contexts/ContentContext";
-
-function Home() {
-  return (
-    <div className={`min-h-screen ${theme.page}`}>
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Lawyers />
-        <Strength />
-        <Practice />
-        <Cases />
-        <Consult />
-      </main>
-      <Footer />
-    </div>
-  );
-}
+import { AuthProvider } from "./contexts/AuthContext";
 
 export default function App() {
   return (
-    <ContentProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          
-          {/* Admin Routes */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<ConsultationList />} />
-            <Route path="consultations/:id" element={<ConsultationDetail />} />
-            <Route path="content" element={<ContentEditor />} />
-          </Route>
-        </Routes>
-      </Router>
-    </ContentProvider>
+    <AuthProvider>
+      <ContentProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<LoginPage />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<ConsultationList />} />
+              <Route path="consultations/:id" element={<ConsultationDetail />} />
+              <Route path="content" element={<ContentEditor />} />
+            </Route>
+          </Routes>
+        </Router>
+      </ContentProvider>
+    </AuthProvider>
   );
 }

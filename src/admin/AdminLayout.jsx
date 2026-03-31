@@ -1,8 +1,25 @@
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { useEffect } from "react";
 
 export default function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isAuthenticated, loading } = useAuth();
+
+  useEffect(() => {
+    if (!loading && !isAuthenticated && location.pathname !== "/admin/login") {
+      navigate("/admin/login");
+    }
+  }, [isAuthenticated, loading, navigate, location]);
+
+  if (loading) {
+    return <div className="flex h-screen items-center justify-center">Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return null;
+  }
 
   const navItems = [
     { id: "consultations", path: "/admin", icon: "📋", label: "상담 관리" },
