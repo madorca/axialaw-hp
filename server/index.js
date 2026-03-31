@@ -387,11 +387,27 @@ app.post("/api/upload", authenticate, upload.single("image"), (req, res) => {
 });
 
 // ─── 프로덕션: 정적 파일 서빙 ─────────────
-const distPath = path.resolve(__dirname, "..", "..", "dist");
-console.log("distPath:", distPath, "exists:", fs.existsSync(distPath));
-if (fs.existsSync(distPath)) {
+console.log("__dirname:", __dirname);
+console.log("process.cwd():", process.cwd());
+const possiblePaths = [
+  path.resolve(__dirname, "..", "dist"),
+  path.resolve(__dirname, "..", "..", "dist"),
+  path.resolve(__dirname, "..", "..", "..", "dist"),
+  path.resolve(process.cwd(), "dist"),
+  path.resolve(process.cwd(), "..", "dist"),
+];
+console.log("Checking paths:", possiblePaths);
+let distPath = "";
+for (const p of possiblePaths) {
+  console.log("Check:", p, fs.existsSync(p));
+  if (fs.existsSync(p)) {
+    distPath = p;
+    break;
+  }
+}
+console.log("Using distPath:", distPath);
+if (distPath) {
   app.use(express.static(distPath));
-  console.log("Static middleware enabled");
   app.use((req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
