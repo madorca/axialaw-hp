@@ -19,6 +19,7 @@ import { fileURLToPath } from "url";
 import multer from "multer";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
+import { getContent, updateContent, getConsultations, getConsultation, createConsultation, updateConsultation, deleteConsultation } from "./db.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -283,16 +284,13 @@ app.post("/api/consultations", (req, res) => {
     updatedAt: new Date().toISOString(),
   };
 
-  const consultations = readJSON(CONSULTATIONS_FILE, []);
-  consultations.unshift(consultation);
-  writeJSON(CONSULTATIONS_FILE, consultations);
-
+  createConsultation(consultation);
   res.status(201).json({ success: true, data: consultation });
 });
 
 // GET /api/consultations — 전체 목록 (어드민용)
 app.get("/api/consultations", authenticate, (req, res) => {
-  const consultations = readJSON(CONSULTATIONS_FILE, []);
+  const consultations = getConsultations();
   const { status } = req.query;
 
   if (status && status !== "all") {
@@ -304,44 +302,27 @@ app.get("/api/consultations", authenticate, (req, res) => {
 
 // GET /api/consultations/:id — 단건 조회
 app.get("/api/consultations/:id", authenticate, (req, res) => {
-  const consultations = readJSON(CONSULTATIONS_FILE, []);
-  const item = consultations.find((c) => c.id === req.params.id);
+  const item = getConsultation(req.params.id);
   if (!item) return res.status(404).json({ error: "Not found" });
   res.json(item);
 });
 
 // PATCH /api/consultations/:id — 상태/메모 수정
 app.patch("/api/consultations/:id", authenticate, (req, res) => {
-  const consultations = readJSON(CONSULTATIONS_FILE, []);
-  const idx = consultations.findIndex((c) => c.id === req.params.id);
-  if (idx === -1) return res.status(404).json({ error: "Not found" });
-
-  const allowed = ["status", "memo"];
-  for (const key of allowed) {
-    if (req.body[key] !== undefined) {
-      consultations[idx][key] = req.body[key];
-    }
-  }
-  consultations[idx].updatedAt = new Date().toISOString();
-  writeJSON(CONSULTATIONS_FILE, consultations);
-
-  res.json({ success: true, data: consultations[idx] });
+  const updated = updateConsultation(req.params.id, req.body);
+  if (!updated) return res.status(404).json({ error: "Not found" });
+  res.json({ success: true, data: updated });
 });
 
 // DELETE /api/consultations/:id — 삭제
 app.delete("/api/consultations/:id", authenticate, (req, res) => {
-  let consultations = readJSON(CONSULTATIONS_FILE, []);
-  const before = consultations.length;
-  consultations = consultations.filter((c) => c.id !== req.params.id);
-  if (consultations.length === before)
-    return res.status(404).json({ error: "Not found" });
-  writeJSON(CONSULTATIONS_FILE, consultations);
+  deleteConsultation(req.params.id);
   res.json({ success: true });
 });
 
 // GET /api/consultations/stats/summary — 상태별 카운트
 app.get("/api/consultations/stats/summary", authenticate, (req, res) => {
-  const consultations = readJSON(CONSULTATIONS_FILE, []);
+  const consultations = getConsultations();
   const stats = { total: consultations.length, new: 0, reply: 0, ongoing: 0, closed: 0 };
   for (const c of consultations) {
     if (stats[c.status] !== undefined) stats[c.status]++;
@@ -355,22 +336,19 @@ app.get("/api/consultations/stats/summary", authenticate, (req, res) => {
 
 // GET /api/content — 전체 컨텐츠 읽기
 app.get("/api/content", (req, res) => {
-  const content = readJSON(CONTENT_FILE, {});
-  res.json(content);
+  const content = getContent();
+  res.json(content || {});
 });
 
 // PATCH /api/content — 컨텐츠 부분 수정 (인증 필요)
 app.patch("/api/content", authenticate, (req, res) => {
-  const content = readJSON(CONTENT_FILE, {});
   // Deep merge
   for (const [section, values] of Object.entries(req.body)) {
     if (typeof values === "object" && !Array.isArray(values)) {
-      content[section] = { ...content[section], ...values };
-    } else {
-      content[section] = values;
+      updateContent(section, values);
     }
   }
-  writeJSON(CONTENT_FILE, content);
+  const content = getContent();
   res.json({ success: true, data: content });
 });
 
