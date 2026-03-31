@@ -394,12 +394,6 @@ if (fs.existsSync(distPath)) {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
-if (distPath && fs.existsSync(distPath)) {
-  app.use(express.static(distPath));
-  app.use((req, res) => {
-    res.sendFile(path.join(distPath, "index.html"));
-  });
-}
 
 // Vercel 환경에서 /tmp/uploads 정적 파일 서빙
 if (isVercel) {
