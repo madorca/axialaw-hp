@@ -387,7 +387,7 @@ app.post("/api/upload", authenticate, upload.single("image"), (req, res) => {
 });
 
 // ─── 프로덕션: 정적 파일 서빙 ─────────────
-const distPath = path.resolve(__dirname, "..", "dist");
+const distPath = path.resolve(__dirname, "..", "..", "dist");
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
   app.use((req, res) => {
