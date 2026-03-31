@@ -388,8 +388,10 @@ app.post("/api/upload", authenticate, upload.single("image"), (req, res) => {
 
 // ─── 프로덕션: 정적 파일 서빙 ─────────────
 const distPath = path.resolve(__dirname, "..", "..", "dist");
+console.log("distPath:", distPath, "exists:", fs.existsSync(distPath));
 if (fs.existsSync(distPath)) {
   app.use(express.static(distPath));
+  console.log("Static middleware enabled");
   app.use((req, res) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
