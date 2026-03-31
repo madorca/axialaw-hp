@@ -395,8 +395,10 @@ const possiblePaths = [
   path.join(__dirname, "..", "dist"),
   path.join(process.cwd(), "dist"),
 ];
+console.log("Checking paths:", possiblePaths);
 let distPath = "";
 for (const p of possiblePaths) {
+  console.log("Checking:", p, fs.existsSync(p));
   if (fs.existsSync(p)) {
     distPath = p;
     break;
