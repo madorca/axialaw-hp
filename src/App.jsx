@@ -17,6 +17,24 @@ import ContentEditor from "./admin/ContentEditor";
 import { ContentProvider } from "./contexts/ContentContext";
 import { AuthProvider } from "./contexts/AuthContext";
 
+function Home() {
+  return (
+    <div className={`min-h-screen ${theme.page}`}>
+      <Header />
+      <main>
+        <Hero />
+        <About />
+        <Lawyers />
+        <Strength />
+        <Practice />
+        <Cases />
+        <Consult />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <AuthProvider>
